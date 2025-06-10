@@ -7,6 +7,12 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/authRoutes");
 const chatRoutes = require("./routes/chatRoutes");
+const cors = require("cors");
+
+app.use(cors({
+  origin: "https://chat-app-frontend-alpha-nine.vercel.app/", // frontend URL
+  credentials: true, // only if you're using cookies
+}));
 
 dotenv.config();
 
