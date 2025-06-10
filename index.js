@@ -9,10 +9,6 @@ const authRoutes = require("./routes/authRoutes");
 const chatRoutes = require("./routes/chatRoutes");
 
 
-app.use(cors({
-  origin: "https://chat-app-frontend-alpha-nine.vercel.app/", // frontend URL
-  credentials: true, // only if you're using cookies
-}));
 
 dotenv.config();
 
@@ -25,6 +21,10 @@ const io = new Server(server, {
   cors: { origin: "*" }
 });
 
+app.use(cors({
+  origin: "https://chat-app-frontend-alpha-nine.vercel.app/", // frontend URL
+  credentials: true, // only if you're using cookies
+}));
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
